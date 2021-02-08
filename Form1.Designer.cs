@@ -29,94 +29,81 @@ namespace Vendas
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.edtCodProd = new System.Windows.Forms.Label();
+            this.edtCodProd = new System.Windows.Forms.TextBox();
+            this.lblCodProd = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.lblResultadoLucro = new System.Windows.Forms.Label();
-            this.lblLucro = new System.Windows.Forms.Label();
+            this.btnAdicionar = new System.Windows.Forms.Button();
             this.edtPrecoFinal = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnDeletar = new System.Windows.Forms.Button();
-            this.btnGravar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.edtQtde = new System.Windows.Forms.TextBox();
             this.edtPreco = new System.Windows.Forms.TextBox();
             this.lblPreco = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.edtNomeProd = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.grdDados = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Custo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lucro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LucroPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblResultPercent = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.lblResultadoLucro = new System.Windows.Forms.Label();
+            this.lblLucro = new System.Windows.Forms.Label();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnGravar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDados)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(145, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
             // 
             // edtCodProd
             // 
-            this.edtCodProd.AutoSize = true;
-            this.edtCodProd.Location = new System.Drawing.Point(16, 46);
+            this.edtCodProd.Location = new System.Drawing.Point(145, 43);
             this.edtCodProd.Name = "edtCodProd";
-            this.edtCodProd.Size = new System.Drawing.Size(98, 13);
-            this.edtCodProd.TabIndex = 2;
-            this.edtCodProd.Text = "Codigo do Produto:";
+            this.edtCodProd.Size = new System.Drawing.Size(41, 20);
+            this.edtCodProd.TabIndex = 1;
+            // 
+            // lblCodProd
+            // 
+            this.lblCodProd.AutoSize = true;
+            this.lblCodProd.Location = new System.Drawing.Point(16, 46);
+            this.lblCodProd.Name = "lblCodProd";
+            this.lblCodProd.Size = new System.Drawing.Size(98, 13);
+            this.lblCodProd.TabIndex = 2;
+            this.lblCodProd.Text = "Codigo do Produto:";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblResultPercent);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.btnAlterar);
-            this.groupBox1.Controls.Add(this.lblResultadoLucro);
-            this.groupBox1.Controls.Add(this.lblLucro);
+            this.groupBox1.Controls.Add(this.btnAdicionar);
             this.groupBox1.Controls.Add(this.edtPrecoFinal);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnDeletar);
-            this.groupBox1.Controls.Add(this.btnGravar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.edtQtde);
             this.groupBox1.Controls.Add(this.edtPreco);
             this.groupBox1.Controls.Add(this.lblPreco);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.edtNomeProd);
             this.groupBox1.Controls.Add(this.lblNome);
+            this.groupBox1.Controls.Add(this.lblCodProd);
             this.groupBox1.Controls.Add(this.edtCodProd);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Location = new System.Drawing.Point(0, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(616, 151);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
-            // btnAlterar
+            // btnAdicionar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(377, 94);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(79, 23);
-            this.btnAlterar.TabIndex = 7;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            // 
-            // lblResultadoLucro
-            // 
-            this.lblResultadoLucro.AutoSize = true;
-            this.lblResultadoLucro.Location = new System.Drawing.Point(411, 120);
-            this.lblResultadoLucro.Name = "lblResultadoLucro";
-            this.lblResultadoLucro.Size = new System.Drawing.Size(34, 13);
-            this.lblResultadoLucro.TabIndex = 14;
-            this.lblResultadoLucro.Text = "";
-            // 
-            // lblLucro
-            // 
-            this.lblLucro.AutoSize = true;
-            this.lblLucro.Location = new System.Drawing.Point(354, 120);
-            this.lblLucro.Name = "lblLucro";
-            this.lblLucro.Size = new System.Drawing.Size(57, 13);
-            this.lblLucro.TabIndex = 13;
-            this.lblLucro.Text = "Lucro(R$):";
+            this.btnAdicionar.Location = new System.Drawing.Point(547, 66);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(64, 23);
+            this.btnAdicionar.TabIndex = 12;
+            this.btnAdicionar.Text = "Adicionar";
+            this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // edtPrecoFinal
             // 
@@ -135,28 +122,10 @@ namespace Vendas
             this.label2.TabIndex = 11;
             this.label2.Text = "Preço de venda:";
             // 
-            // btnDeletar
-            // 
-            this.btnDeletar.Location = new System.Drawing.Point(458, 94);
-            this.btnDeletar.Name = "btnDeletar";
-            this.btnDeletar.Size = new System.Drawing.Size(79, 23);
-            this.btnDeletar.TabIndex = 8;
-            this.btnDeletar.Text = "Deletar";
-            this.btnDeletar.UseVisualStyleBackColor = true;
-            // 
-            // btnGravar
-            // 
-            this.btnGravar.Location = new System.Drawing.Point(295, 94);
-            this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(79, 23);
-            this.btnGravar.TabIndex = 6;
-            this.btnGravar.Text = "Gravar";
-            this.btnGravar.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 97);
+            this.label1.Location = new System.Drawing.Point(447, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 8;
@@ -164,9 +133,9 @@ namespace Vendas
             // 
             // edtQtde
             // 
-            this.edtQtde.Location = new System.Drawing.Point(145, 94);
+            this.edtQtde.Location = new System.Drawing.Point(489, 68);
             this.edtQtde.Name = "edtQtde";
-            this.edtQtde.Size = new System.Drawing.Size(100, 20);
+            this.edtQtde.Size = new System.Drawing.Size(48, 20);
             this.edtQtde.TabIndex = 5;
             // 
             // edtPreco
@@ -185,73 +154,209 @@ namespace Vendas
             this.lblPreco.TabIndex = 5;
             this.lblPreco.Text = "Preço de compra(custo):";
             // 
-            // textBox2
+            // edtNomeProd
             // 
-            this.textBox2.Location = new System.Drawing.Point(295, 43);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(242, 20);
-            this.textBox2.TabIndex = 2;
+            this.edtNomeProd.Location = new System.Drawing.Point(248, 43);
+            this.edtNomeProd.Name = "edtNomeProd";
+            this.edtNomeProd.Size = new System.Drawing.Size(289, 20);
+            this.edtNomeProd.TabIndex = 2;
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(251, 46);
+            this.lblNome.Location = new System.Drawing.Point(210, 46);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(38, 13);
             this.lblNome.TabIndex = 3;
             this.lblNome.Text = "Nome:";
             // 
-            // label3
+            // grdDados
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(446, 120);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Lucro(%):";
+            this.grdDados.AllowUserToAddRows = false;
+            this.grdDados.AllowUserToDeleteRows = false;
+            this.grdDados.AllowUserToResizeColumns = false;
+            this.grdDados.AllowUserToResizeRows = false;
+            this.grdDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Codigo,
+            this.Nome,
+            this.Custo,
+            this.Preco,
+            this.Quantidade,
+            this.Lucro,
+            this.LucroPercent});
+            this.grdDados.Location = new System.Drawing.Point(0, 107);
+            this.grdDados.Name = "grdDados";
+            this.grdDados.ReadOnly = true;
+            this.grdDados.Size = new System.Drawing.Size(611, 174);
+            this.grdDados.TabIndex = 6;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 53;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 225;
+            // 
+            // Custo
+            // 
+            this.Custo.HeaderText = "Custo";
+            this.Custo.Name = "Custo";
+            this.Custo.ReadOnly = true;
+            this.Custo.Width = 55;
+            // 
+            // Preco
+            // 
+            this.Preco.HeaderText = "Preço";
+            this.Preco.Name = "Preco";
+            this.Preco.ReadOnly = true;
+            this.Preco.Width = 55;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.HeaderText = "Quantidade";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            this.Quantidade.Width = 74;
+            // 
+            // Lucro
+            // 
+            this.Lucro.HeaderText = "Lucro(R$)";
+            this.Lucro.Name = "Lucro";
+            this.Lucro.ReadOnly = true;
+            this.Lucro.Width = 51;
+            // 
+            // LucroPercent
+            // 
+            this.LucroPercent.HeaderText = "Lucro(%)";
+            this.LucroPercent.Name = "LucroPercent";
+            this.LucroPercent.ReadOnly = true;
+            this.LucroPercent.Width = 51;
             // 
             // lblResultPercent
             // 
             this.lblResultPercent.AutoSize = true;
-            this.lblResultPercent.Location = new System.Drawing.Point(503, 120);
+            this.lblResultPercent.Location = new System.Drawing.Point(581, 313);
             this.lblResultPercent.Name = "lblResultPercent";
-            this.lblResultPercent.Size = new System.Drawing.Size(34, 13);
-            this.lblResultPercent.TabIndex = 16;
-            this.lblResultPercent.Text = "";
+            this.lblResultPercent.Size = new System.Drawing.Size(30, 13);
+            this.lblResultPercent.TabIndex = 23;
+            this.lblResultPercent.Text = "teste";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(531, 313);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Lucro(%):";
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(451, 287);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(79, 23);
+            this.btnAlterar.TabIndex = 18;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            // 
+            // lblResultadoLucro
+            // 
+            this.lblResultadoLucro.AutoSize = true;
+            this.lblResultadoLucro.Location = new System.Drawing.Point(501, 313);
+            this.lblResultadoLucro.Name = "lblResultadoLucro";
+            this.lblResultadoLucro.Size = new System.Drawing.Size(30, 13);
+            this.lblResultadoLucro.TabIndex = 21;
+            this.lblResultadoLucro.Text = "teste";
+            // 
+            // lblLucro
+            // 
+            this.lblLucro.AutoSize = true;
+            this.lblLucro.Location = new System.Drawing.Point(443, 313);
+            this.lblLucro.Name = "lblLucro";
+            this.lblLucro.Size = new System.Drawing.Size(57, 13);
+            this.lblLucro.TabIndex = 20;
+            this.lblLucro.Text = "Lucro(R$):";
+            // 
+            // btnDeletar
+            // 
+            this.btnDeletar.Location = new System.Drawing.Point(532, 287);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(79, 23);
+            this.btnDeletar.TabIndex = 19;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            // 
+            // btnGravar
+            // 
+            this.btnGravar.Location = new System.Drawing.Point(369, 287);
+            this.btnGravar.Name = "btnGravar";
+            this.btnGravar.Size = new System.Drawing.Size(79, 23);
+            this.btnGravar.TabIndex = 17;
+            this.btnGravar.Text = "Gravar";
+            this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // frmProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 180);
+            this.ClientSize = new System.Drawing.Size(619, 348);
+            this.Controls.Add(this.lblResultPercent);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.lblResultadoLucro);
+            this.Controls.Add(this.lblLucro);
+            this.Controls.Add(this.btnDeletar);
+            this.Controls.Add(this.btnGravar);
+            this.Controls.Add(this.grdDados);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "frmProduto";
-            this.Text = "Vendas - Cadastro de Produto";
+            this.Text = "Sistema de Estoque - Cadastro de Produto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDados)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label edtCodProd;
+        private System.Windows.Forms.TextBox edtCodProd;
+        private System.Windows.Forms.Label lblCodProd;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox edtPreco;
         private System.Windows.Forms.Label lblPreco;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox edtNomeProd;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox edtQtde;
-        private System.Windows.Forms.Button btnDeletar;
-        private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.TextBox edtPrecoFinal;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblResultadoLucro;
-        private System.Windows.Forms.Label lblLucro;
-        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.DataGridView grdDados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Custo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Preco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lucro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LucroPercent;
+        private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Label lblResultPercent;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Label lblResultadoLucro;
+        private System.Windows.Forms.Label lblLucro;
+        private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.Button btnGravar;
     }
 }
 
