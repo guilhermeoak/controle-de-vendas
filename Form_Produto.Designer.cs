@@ -51,7 +51,7 @@ namespace Vendas
             this.LucroPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblResultPercent = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.lblResultadoLucro = new System.Windows.Forms.Label();
             this.lblLucro = new System.Windows.Forms.Label();
             this.btnDeletar = new System.Windows.Forms.Button();
@@ -258,14 +258,15 @@ namespace Vendas
             this.label3.TabIndex = 22;
             this.label3.Text = "Lucro(%):";
             // 
-            // btnAlterar
+            // btnLimpar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(451, 287);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(79, 23);
-            this.btnAlterar.TabIndex = 18;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Location = new System.Drawing.Point(451, 287);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(79, 23);
+            this.btnLimpar.TabIndex = 18;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // lblResultadoLucro
             // 
@@ -311,7 +312,7 @@ namespace Vendas
             this.ClientSize = new System.Drawing.Size(619, 348);
             this.Controls.Add(this.lblResultPercent);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.lblResultadoLucro);
             this.Controls.Add(this.lblLucro);
             this.Controls.Add(this.btnDeletar);
@@ -320,6 +321,7 @@ namespace Vendas
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "frmProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Estoque - Cadastro de Produto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -352,7 +354,7 @@ namespace Vendas
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Label lblResultPercent;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Label lblResultadoLucro;
         private System.Windows.Forms.Label lblLucro;
         private System.Windows.Forms.Button btnDeletar;
