@@ -16,7 +16,8 @@ namespace Vendas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmProduto());
+            Form tela_inicial = new Form_Tela_Inicial();
+            Application.Run(tela_inicial);            
         }
     }
 }

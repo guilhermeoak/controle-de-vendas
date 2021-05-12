@@ -104,6 +104,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Cliente.Designer.cs">
+      <DependentUpon>Form_Cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Produto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_Cliente.resx">
+      <DependentUpon>Form_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Produto.resx">
       <DependentUpon>Form_Produto.cs</DependentUpon>
     </EmbeddedResource>

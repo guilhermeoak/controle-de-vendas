@@ -32,6 +32,8 @@ namespace Vendas
             this.edtCodProd = new System.Windows.Forms.TextBox();
             this.lblCodProd = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.edtPrecoFinal = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,15 +64,16 @@ namespace Vendas
             // 
             // edtCodProd
             // 
-            this.edtCodProd.Location = new System.Drawing.Point(145, 43);
+            this.edtCodProd.Location = new System.Drawing.Point(140, 15);
             this.edtCodProd.Name = "edtCodProd";
             this.edtCodProd.Size = new System.Drawing.Size(41, 20);
             this.edtCodProd.TabIndex = 1;
+            this.edtCodProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edtCodProd_KeyPress);
             // 
             // lblCodProd
             // 
             this.lblCodProd.AutoSize = true;
-            this.lblCodProd.Location = new System.Drawing.Point(16, 46);
+            this.lblCodProd.Location = new System.Drawing.Point(11, 19);
             this.lblCodProd.Name = "lblCodProd";
             this.lblCodProd.Size = new System.Drawing.Size(98, 13);
             this.lblCodProd.TabIndex = 2;
@@ -78,6 +81,8 @@ namespace Vendas
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSair);
+            this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.btnAdicionar);
             this.groupBox1.Controls.Add(this.edtPrecoFinal);
             this.groupBox1.Controls.Add(this.label2);
@@ -89,15 +94,35 @@ namespace Vendas
             this.groupBox1.Controls.Add(this.lblNome);
             this.groupBox1.Controls.Add(this.lblCodProd);
             this.groupBox1.Controls.Add(this.edtCodProd);
-            this.groupBox1.Location = new System.Drawing.Point(0, 12);
+            this.groupBox1.Location = new System.Drawing.Point(6, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(616, 151);
+            this.groupBox1.Size = new System.Drawing.Size(614, 324);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // btnSair
+            // 
+            this.btnSair.Location = new System.Drawing.Point(527, 275);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(79, 23);
+            this.btnSair.TabIndex = 24;
+            this.btnSair.Text = "Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(542, 14);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(64, 23);
+            this.btnBuscar.TabIndex = 13;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // btnAdicionar
             // 
-            this.btnAdicionar.Location = new System.Drawing.Point(547, 66);
+            this.btnAdicionar.Location = new System.Drawing.Point(542, 39);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(64, 23);
             this.btnAdicionar.TabIndex = 12;
@@ -107,7 +132,7 @@ namespace Vendas
             // 
             // edtPrecoFinal
             // 
-            this.edtPrecoFinal.Location = new System.Drawing.Point(341, 69);
+            this.edtPrecoFinal.Location = new System.Drawing.Point(336, 40);
             this.edtPrecoFinal.Name = "edtPrecoFinal";
             this.edtPrecoFinal.Size = new System.Drawing.Size(100, 20);
             this.edtPrecoFinal.TabIndex = 4;
@@ -116,7 +141,7 @@ namespace Vendas
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(251, 72);
+            this.label2.Location = new System.Drawing.Point(246, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 11;
@@ -125,7 +150,7 @@ namespace Vendas
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(447, 71);
+            this.label1.Location = new System.Drawing.Point(442, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 8;
@@ -133,14 +158,14 @@ namespace Vendas
             // 
             // edtQtde
             // 
-            this.edtQtde.Location = new System.Drawing.Point(489, 68);
+            this.edtQtde.Location = new System.Drawing.Point(484, 40);
             this.edtQtde.Name = "edtQtde";
             this.edtQtde.Size = new System.Drawing.Size(48, 20);
             this.edtQtde.TabIndex = 5;
             // 
             // edtPreco
             // 
-            this.edtPreco.Location = new System.Drawing.Point(145, 68);
+            this.edtPreco.Location = new System.Drawing.Point(140, 40);
             this.edtPreco.Name = "edtPreco";
             this.edtPreco.Size = new System.Drawing.Size(100, 20);
             this.edtPreco.TabIndex = 3;
@@ -148,7 +173,7 @@ namespace Vendas
             // lblPreco
             // 
             this.lblPreco.AutoSize = true;
-            this.lblPreco.Location = new System.Drawing.Point(16, 75);
+            this.lblPreco.Location = new System.Drawing.Point(11, 44);
             this.lblPreco.Name = "lblPreco";
             this.lblPreco.Size = new System.Drawing.Size(123, 13);
             this.lblPreco.TabIndex = 5;
@@ -156,7 +181,7 @@ namespace Vendas
             // 
             // edtNomeProd
             // 
-            this.edtNomeProd.Location = new System.Drawing.Point(248, 43);
+            this.edtNomeProd.Location = new System.Drawing.Point(243, 15);
             this.edtNomeProd.Name = "edtNomeProd";
             this.edtNomeProd.Size = new System.Drawing.Size(289, 20);
             this.edtNomeProd.TabIndex = 2;
@@ -164,7 +189,7 @@ namespace Vendas
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(210, 46);
+            this.lblNome.Location = new System.Drawing.Point(205, 19);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(38, 13);
             this.lblNome.TabIndex = 3;
@@ -185,39 +210,41 @@ namespace Vendas
             this.Quantidade,
             this.Lucro,
             this.LucroPercent});
-            this.grdDados.Location = new System.Drawing.Point(0, 107);
+            this.grdDados.Location = new System.Drawing.Point(19, 80);
             this.grdDados.Name = "grdDados";
             this.grdDados.ReadOnly = true;
-            this.grdDados.Size = new System.Drawing.Size(611, 174);
+            this.grdDados.Size = new System.Drawing.Size(592, 201);
             this.grdDados.TabIndex = 6;
+            this.grdDados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDados_CellDoubleClick);
             // 
             // Codigo
             // 
             this.Codigo.HeaderText = "Código";
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 53;
+            this.Codigo.Visible = false;
+            this.Codigo.Width = 50;
             // 
             // Nome
             // 
             this.Nome.HeaderText = "Nome";
             this.Nome.Name = "Nome";
             this.Nome.ReadOnly = true;
-            this.Nome.Width = 225;
+            this.Nome.Width = 250;
             // 
             // Custo
             // 
             this.Custo.HeaderText = "Custo";
             this.Custo.Name = "Custo";
             this.Custo.ReadOnly = true;
-            this.Custo.Width = 55;
+            this.Custo.Width = 60;
             // 
             // Preco
             // 
             this.Preco.HeaderText = "Preço";
             this.Preco.Name = "Preco";
             this.Preco.ReadOnly = true;
-            this.Preco.Width = 55;
+            this.Preco.Width = 60;
             // 
             // Quantidade
             // 
@@ -231,19 +258,19 @@ namespace Vendas
             this.Lucro.HeaderText = "Lucro(R$)";
             this.Lucro.Name = "Lucro";
             this.Lucro.ReadOnly = true;
-            this.Lucro.Width = 51;
+            this.Lucro.Width = 53;
             // 
             // LucroPercent
             // 
             this.LucroPercent.HeaderText = "Lucro(%)";
             this.LucroPercent.Name = "LucroPercent";
             this.LucroPercent.ReadOnly = true;
-            this.LucroPercent.Width = 51;
+            this.LucroPercent.Width = 53;
             // 
             // lblResultPercent
             // 
             this.lblResultPercent.AutoSize = true;
-            this.lblResultPercent.Location = new System.Drawing.Point(581, 313);
+            this.lblResultPercent.Location = new System.Drawing.Point(575, 313);
             this.lblResultPercent.Name = "lblResultPercent";
             this.lblResultPercent.Size = new System.Drawing.Size(30, 13);
             this.lblResultPercent.TabIndex = 23;
@@ -252,7 +279,7 @@ namespace Vendas
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(531, 313);
+            this.label3.Location = new System.Drawing.Point(525, 313);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 22;
@@ -260,7 +287,8 @@ namespace Vendas
             // 
             // btnLimpar
             // 
-            this.btnLimpar.Location = new System.Drawing.Point(451, 287);
+            this.btnLimpar.Enabled = false;
+            this.btnLimpar.Location = new System.Drawing.Point(369, 287);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(79, 23);
             this.btnLimpar.TabIndex = 18;
@@ -271,7 +299,7 @@ namespace Vendas
             // lblResultadoLucro
             // 
             this.lblResultadoLucro.AutoSize = true;
-            this.lblResultadoLucro.Location = new System.Drawing.Point(501, 313);
+            this.lblResultadoLucro.Location = new System.Drawing.Point(495, 313);
             this.lblResultadoLucro.Name = "lblResultadoLucro";
             this.lblResultadoLucro.Size = new System.Drawing.Size(30, 13);
             this.lblResultadoLucro.TabIndex = 21;
@@ -280,7 +308,7 @@ namespace Vendas
             // lblLucro
             // 
             this.lblLucro.AutoSize = true;
-            this.lblLucro.Location = new System.Drawing.Point(443, 313);
+            this.lblLucro.Location = new System.Drawing.Point(437, 313);
             this.lblLucro.Name = "lblLucro";
             this.lblLucro.Size = new System.Drawing.Size(57, 13);
             this.lblLucro.TabIndex = 20;
@@ -288,16 +316,19 @@ namespace Vendas
             // 
             // btnDeletar
             // 
-            this.btnDeletar.Location = new System.Drawing.Point(532, 287);
+            this.btnDeletar.Enabled = false;
+            this.btnDeletar.Location = new System.Drawing.Point(450, 287);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(79, 23);
             this.btnDeletar.TabIndex = 19;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(369, 287);
+            this.btnGravar.Enabled = false;
+            this.btnGravar.Location = new System.Drawing.Point(287, 287);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(79, 23);
             this.btnGravar.TabIndex = 17;
@@ -309,7 +340,7 @@ namespace Vendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 348);
+            this.ClientSize = new System.Drawing.Size(626, 341);
             this.Controls.Add(this.lblResultPercent);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnLimpar);
@@ -319,7 +350,9 @@ namespace Vendas
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.grdDados);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmProduto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Estoque - Cadastro de Produto";
@@ -344,13 +377,6 @@ namespace Vendas
         private System.Windows.Forms.TextBox edtPrecoFinal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView grdDados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Custo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Preco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lucro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LucroPercent;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Label lblResultPercent;
         private System.Windows.Forms.Label label3;
@@ -359,6 +385,15 @@ namespace Vendas
         private System.Windows.Forms.Label lblLucro;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Custo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Preco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lucro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LucroPercent;
     }
 }
 
