@@ -14,7 +14,17 @@ namespace Vendas
     public partial class frmCliente : Form
     {
 
+        public frmCliente()
+        {
+            InitializeComponent();
+        }
+
         List<Cliente> clientes = new List<Cliente>();
+
+        private void frmCliente_Load(object sender, EventArgs e)
+        {
+            RedefineCampos();
+        }
 
         private void edtCPF_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -40,10 +50,7 @@ namespace Vendas
             }
         }
 
-        public frmCliente()
-        {
-            InitializeComponent();            
-        }
+
 
         private void edtCPF_Click(object sender, EventArgs e)
         {
@@ -78,13 +85,13 @@ namespace Vendas
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            LimparCampos(2);
+            RedefineCampos(2);
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
             DeletarCliente();
-            LimparCampos(2);
+            RedefineCampos(2);
             BuscarCliente();
         }
 
@@ -158,7 +165,7 @@ namespace Vendas
                                      ,cbTipo.Text);
                 }
 
-                LimparCampos();
+                RedefineCampos();
                 btnGravar.Enabled  = true;
                 btnLimpar.Enabled  = true;
                 btnDeletar.Enabled = true;
@@ -166,38 +173,58 @@ namespace Vendas
             }
         }
 
-        private void LimparCampos(int tudo = 1)
+        private void RedefineCampos(int modo = 1)
         {
             /// <sumary>
-            /// Se usado o numero 2, o metodo irá limpar todos os campos do form.
-            /// Se não utilizado nada na chamada do método, o mesmo utilizará por
-            /// padrão o código 1, que limpa somente os edtis e labels do form.
+            /// O modo 1(padrão) limpa somente os controles da tela.
+            /// O modo 2 limpa toda a tela, bloqueia os controles e joga o foco para código.
+            /// O modo 3 é usado na hora de cadastrar/editar um cliente.
             /// </sumary>
+
+            edtCodCliente.Enabled = true;
+            edtDtCadastro.Enabled = false;
+            edtDtCadastro.Text    = DateTime.Now.ToString();
+            edtNasc.Enabled       = false;
+            edtCPF.Enabled        = false;
+            edtRG.Enabled         = false;
+            cbTipo.Enabled        = false;
+            edtCodCliente.Focus();
+
+
+            btnLimpar.Enabled = true;
+            if (modo == 2)
+            {
+                grdDados.Rows.Clear();
+
+                edtNasc.Enabled       = false;
+                edtCPF.Enabled        = false;
+                edtRG.Enabled         = false;
+                cbTipo.Enabled        = false;
+                cbTipo.SelectedItem   = 0;                              
+                btnGravar.Enabled     = false;
+                btnDeletar.Enabled    = false;
+                btnBuscar.Enabled     = true;
+            }
+            else if (modo == 3)
+            {
+                edtNasc.Enabled       = true;
+                edtCPF.Enabled        = true;
+                edtRG.Enabled         = true;
+                cbTipo.Enabled        = true;
+                edtNasc.Enabled       = true;
+                edtCPF.Enabled        = true;
+                edtRG.Enabled         = true;
+                cbTipo.Enabled        = true;
+                btnBuscar.Enabled     = false;
+                return;
+            }
 
             edtCodCliente.Text   = "";
             edtNome.Text         = "";
             edtCPF.Text          = "";
             edtRG.Text           = "";
             edtNasc.Text         = "";
-            edtDtCadastro.Text   = "";
-            cbTipo.SelectedIndex = 0;
-
-            if (tudo == 2)
-            {
-                grdDados.Rows.Clear();
-
-                // Redimenssiona a coluna do nome do Cliente para ocultar a coluna de código do Cliente
-                //grdDados.Columns[1].Width = grdDados.Columns[1].Width + 50;
-                //grdDados.Columns[0].Visible = false;
-
-                btnGravar.Enabled  = false;
-                btnLimpar.Enabled  = false;
-                btnDeletar.Enabled = false;
-                btnBuscar.Enabled  = true;
-            }
-
-            edtCodCliente.Enabled = true;
-            edtCodCliente.Focus();
+            cbTipo.SelectedItem  = 0;
         }
 
         private void DeletarCliente()
@@ -209,7 +236,8 @@ namespace Vendas
                 Cliente cliente_existente = context.Cliente.First(p => p.Codigo == cliente_busca.Codigo);
                 context.Cliente.Remove(cliente_existente);
                 context.SaveChanges();
-                MessageBox.Show("Cliente deletado com sucesso!");                
+                MessageBox.Show("Cliente deletado com sucesso!");
+                RedefineCampos(3);
             }
         }
 
@@ -217,15 +245,13 @@ namespace Vendas
         {
             var codcliente = edtCodCliente.TextLength > 0 ? Convert.ToInt32(edtCodCliente.Text) : 0;
 
-            LimparCampos();
+            RedefineCampos();
             btnGravar.Enabled = false;
             btnLimpar.Enabled = true;
             edtCodCliente.Enabled = false;
 
             using (var context = new sistema_de_estoqueCliente())
             {
-                //var codcliente = edtCodCliente.TextLength > 0 ? Convert.ToInt32(edtCodCliente.Text) : 0;
-
                 // Esse objeto será usado logo abaixo para realizar uma busca por todos os itens no BD.
                 List<Cliente> Clientes = new List<Cliente>();
 
@@ -239,12 +265,12 @@ namespace Vendas
                     foreach (Cliente Cliente in Clientes)
                     {
                         grdDados.Rows.Add(Convert.ToString(Cliente.Codigo)
-                                            , Cliente.Nome
-                                            , Cliente.CPF
-                                            , Cliente.RG
-                                            , Cliente.DtNascimento
-                                            , Cliente.DtCadastro
-                                            , Cliente.Tipo);
+                                            ,Cliente.Nome
+                                            ,Cliente.CPF
+                                            ,Cliente.RG
+                                            ,Cliente.DtNascimento
+                                            ,Cliente.DtCadastro
+                                            ,Cliente.Tipo);
                     }
                     if (Clientes.Count == 0)
                     {
@@ -262,12 +288,12 @@ namespace Vendas
                     if (query != null)
                     {
                         grdDados.Rows.Add(Convert.ToString(query.Codigo)
-                                            , query.Nome
-                                            , query.CPF
-                                            , query.RG
-                                            , query.DtNascimento
-                                            , query.DtCadastro
-                                            , query.Tipo);
+                                            ,query.Nome
+                                            ,query.CPF
+                                            ,query.RG
+                                            ,query.DtNascimento
+                                            ,query.DtCadastro
+                                            ,query.Tipo);
                     }
                     else
                     {
@@ -304,14 +330,10 @@ namespace Vendas
                         cliente_existente.Tipo         = Cliente.Tipo;
                     }
                 }
-                //context.Database.ExecuteSqlCommand(@"SET IDENTITY_INSERT[dbo].[Cliente] OFF");
                 context.SaveChanges();
-                //context.Database.ExecuteSqlCommand(@"SET IDENTITY_INSERT[dbo].[Cliente] OFF");
             }
-
             MessageBox.Show("Salvo com sucesso!");
-            LimparCampos(2);
-
+            RedefineCampos(2);
         }
 
         private void grdDados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -330,7 +352,8 @@ namespace Vendas
                 grdDados.Rows.Remove(index_celula);
 
                 btnDeletar.Enabled = true;
-                edtCodCliente.Enabled = false;
+                btnBuscar.Enabled  = false;
+                RedefineCampos(3);
                 edtNome.Focus();
             }
         }
@@ -347,8 +370,7 @@ namespace Vendas
                 else
                 {
                     MessageBox.Show("Inserindo novo cliente");
-                    edtCodCliente.Enabled = false;
-                    btnBuscar.Enabled = false;
+                    RedefineCampos(3);
                     edtNome.Focus();
                 }
             }
