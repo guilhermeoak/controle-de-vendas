@@ -12,7 +12,6 @@ namespace Vendas
 {
     public partial class Form_Tela_Inicial : Form
     {
-        public bool ativo = false;
         public Form_Tela_Inicial()
         {
             InitializeComponent();
@@ -31,12 +30,8 @@ namespace Vendas
 
         private void btnCadastrodeCliente_Click(object sender, EventArgs e)
         {            
-            if(ativo == false)
-            {
-                Form tela_cliente = new frmCliente();
-                tela_cliente.Show();
-                ativo = true;
-            }
+            Form tela_cliente = new frmCliente();
+            tela_cliente.Show();
         }
     }
 }

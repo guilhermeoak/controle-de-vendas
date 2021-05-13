@@ -33,18 +33,12 @@ namespace Vendas
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.grdDados = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.cbTipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.edtDtCadastro = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.edtNasc = new System.Windows.Forms.MaskedTextBox();
             this.edtRG = new System.Windows.Forms.MaskedTextBox();
             this.edtCPF = new System.Windows.Forms.MaskedTextBox();
             this.btnSair = new System.Windows.Forms.Button();
@@ -57,6 +51,13 @@ namespace Vendas
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCodCliente = new System.Windows.Forms.Label();
             this.edtCodCliente = new System.Windows.Forms.TextBox();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +71,7 @@ namespace Vendas
             this.btnLimpar.TabIndex = 27;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnDeletar
             // 
@@ -80,6 +82,7 @@ namespace Vendas
             this.btnDeletar.TabIndex = 28;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
             // btnGravar
             // 
@@ -90,6 +93,7 @@ namespace Vendas
             this.btnGravar.TabIndex = 26;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // grdDados
             // 
@@ -104,54 +108,14 @@ namespace Vendas
             this.CPF,
             this.RG,
             this.Nasc,
-            this.Cadastro});
+            this.Cadastro,
+            this.Tipo});
             this.grdDados.Location = new System.Drawing.Point(14, 73);
             this.grdDados.Name = "grdDados";
             this.grdDados.ReadOnly = true;
             this.grdDados.Size = new System.Drawing.Size(675, 354);
             this.grdDados.TabIndex = 8;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 50;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 293;
-            // 
-            // CPF
-            // 
-            this.CPF.HeaderText = "CPF";
-            this.CPF.Name = "CPF";
-            this.CPF.ReadOnly = true;
-            this.CPF.Width = 70;
-            // 
-            // RG
-            // 
-            this.RG.HeaderText = "RG";
-            this.RG.Name = "RG";
-            this.RG.ReadOnly = true;
-            this.RG.Width = 70;
-            // 
-            // Nasc
-            // 
-            this.Nasc.HeaderText = "Nasc";
-            this.Nasc.Name = "Nasc";
-            this.Nasc.ReadOnly = true;
-            this.Nasc.Width = 74;
-            // 
-            // Cadastro
-            // 
-            this.Cadastro.HeaderText = "Cadastro";
-            this.Cadastro.Name = "Cadastro";
-            this.Cadastro.ReadOnly = true;
-            this.Cadastro.Width = 74;
+            this.grdDados.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdDados_CellMouseDoubleClick);
             // 
             // groupBox1
             // 
@@ -159,7 +123,7 @@ namespace Vendas
             this.groupBox1.Controls.Add(this.cbTipo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.edtDtCadastro);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.edtNasc);
             this.groupBox1.Controls.Add(this.edtRG);
             this.groupBox1.Controls.Add(this.edtCPF);
             this.groupBox1.Controls.Add(this.btnLimpar);
@@ -219,14 +183,17 @@ namespace Vendas
             this.edtDtCadastro.Name = "edtDtCadastro";
             this.edtDtCadastro.Size = new System.Drawing.Size(66, 20);
             this.edtDtCadastro.TabIndex = 6;
+            this.edtDtCadastro.Click += new System.EventHandler(this.edtDtCadastro_Click);
             // 
-            // maskedTextBox1
+            // edtNasc
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(303, 45);
-            this.maskedTextBox1.Mask = "##/##/####";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(66, 20);
-            this.maskedTextBox1.TabIndex = 5;
+            this.edtNasc.Location = new System.Drawing.Point(303, 45);
+            this.edtNasc.Mask = "##/##/####";
+            this.edtNasc.Name = "edtNasc";
+            this.edtNasc.Size = new System.Drawing.Size(66, 20);
+            this.edtNasc.TabIndex = 5;
+            this.edtNasc.Click += new System.EventHandler(this.edtNasc_Click);
+            this.edtNasc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edtNasc_KeyPress);
             // 
             // edtRG
             // 
@@ -236,6 +203,7 @@ namespace Vendas
             this.edtRG.Size = new System.Drawing.Size(51, 20);
             this.edtRG.TabIndex = 4;
             this.edtRG.Click += new System.EventHandler(this.edtRG_Click);
+            this.edtRG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edtRG_KeyPress);
             // 
             // edtCPF
             // 
@@ -245,6 +213,7 @@ namespace Vendas
             this.edtCPF.Size = new System.Drawing.Size(84, 20);
             this.edtCPF.TabIndex = 3;
             this.edtCPF.Click += new System.EventHandler(this.edtCPF_Click);
+            this.edtCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edtCPF_KeyPress);
             // 
             // btnSair
             // 
@@ -264,6 +233,7 @@ namespace Vendas
             this.btnBuscar.TabIndex = 13;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnAdicionar
             // 
@@ -273,6 +243,7 @@ namespace Vendas
             this.btnAdicionar.TabIndex = 12;
             this.btnAdicionar.Text = "Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // lblCpf
             // 
@@ -303,6 +274,7 @@ namespace Vendas
             // 
             // edtNome
             // 
+            this.edtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.edtNome.Location = new System.Drawing.Point(180, 18);
             this.edtNome.Name = "edtNome";
             this.edtNome.Size = new System.Drawing.Size(439, 20);
@@ -332,6 +304,62 @@ namespace Vendas
             this.edtCodCliente.Name = "edtCodCliente";
             this.edtCodCliente.Size = new System.Drawing.Size(84, 20);
             this.edtCodCliente.TabIndex = 1;
+            this.edtCodCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edtCodCliente_KeyPress);
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Codigo.Width = 50;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Nome.Width = 205;
+            // 
+            // CPF
+            // 
+            this.CPF.HeaderText = "CPF";
+            this.CPF.Name = "CPF";
+            this.CPF.ReadOnly = true;
+            this.CPF.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CPF.Width = 85;
+            // 
+            // RG
+            // 
+            this.RG.HeaderText = "RG";
+            this.RG.Name = "RG";
+            this.RG.ReadOnly = true;
+            this.RG.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.RG.Width = 55;
+            // 
+            // Nasc
+            // 
+            this.Nasc.HeaderText = "Nasc";
+            this.Nasc.Name = "Nasc";
+            this.Nasc.ReadOnly = true;
+            this.Nasc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Nasc.Width = 82;
+            // 
+            // Cadastro
+            // 
+            this.Cadastro.HeaderText = "Cadastro";
+            this.Cadastro.Name = "Cadastro";
+            this.Cadastro.ReadOnly = true;
+            this.Cadastro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Cadastro.Width = 82;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Width = 70;
             // 
             // frmCliente
             // 
@@ -344,7 +372,7 @@ namespace Vendas
             this.MinimizeBox = false;
             this.Name = "frmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sistema de Estoque - Cadastro de Cliente";
+            this.Text = "\'";
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -370,16 +398,17 @@ namespace Vendas
         private System.Windows.Forms.TextBox edtCodCliente;
         private System.Windows.Forms.MaskedTextBox edtRG;
         private System.Windows.Forms.MaskedTextBox edtCPF;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox edtNasc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox edtDtCadastro;
+        private System.Windows.Forms.ComboBox cbTipo;
+        private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPF;
         private System.Windows.Forms.DataGridViewTextBoxColumn RG;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nasc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cadastro;
-        private System.Windows.Forms.ComboBox cbTipo;
-        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
     }
 }

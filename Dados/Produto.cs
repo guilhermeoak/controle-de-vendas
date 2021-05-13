@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vendas
+namespace Vendas.Dados
 {
     using System;
     using System.Collections.Generic;
@@ -21,21 +21,5 @@ namespace Vendas
         public Nullable<int> Quantidade { get; set; }
         public Nullable<double> Lucro { get; set; }
         public Nullable<double> Lucro_percentual { get; set; }
-
-        public Produto()
-        { 
-
-        }
-
-        public Produto(int codprod, string prodnome, double custo, double preco_final, int quantidade, double lucro, double lucro_percentual )
-        {
-            Codprod          = codprod;
-            Prodnome         = prodnome;
-            Custo            = custo;
-            Preco_final      = preco_final;
-            Quantidade       = quantidade;
-            Lucro            = lucro;
-            Lucro_percentual = lucro_percentual;
-        }
     }
 }

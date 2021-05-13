@@ -44,13 +44,6 @@ namespace Vendas
             this.edtNomeProd = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.grdDados = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Custo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lucro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LucroPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblResultPercent = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
@@ -58,6 +51,13 @@ namespace Vendas
             this.lblLucro = new System.Windows.Forms.Label();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Custo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lucro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LucroPercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).BeginInit();
             this.SuspendLayout();
@@ -181,6 +181,7 @@ namespace Vendas
             // 
             // edtNomeProd
             // 
+            this.edtNomeProd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.edtNomeProd.Location = new System.Drawing.Point(243, 15);
             this.edtNomeProd.Name = "edtNomeProd";
             this.edtNomeProd.Size = new System.Drawing.Size(289, 20);
@@ -216,56 +217,6 @@ namespace Vendas
             this.grdDados.Size = new System.Drawing.Size(592, 201);
             this.grdDados.TabIndex = 6;
             this.grdDados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDados_CellDoubleClick);
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Visible = false;
-            this.Codigo.Width = 50;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 250;
-            // 
-            // Custo
-            // 
-            this.Custo.HeaderText = "Custo";
-            this.Custo.Name = "Custo";
-            this.Custo.ReadOnly = true;
-            this.Custo.Width = 60;
-            // 
-            // Preco
-            // 
-            this.Preco.HeaderText = "Preço";
-            this.Preco.Name = "Preco";
-            this.Preco.ReadOnly = true;
-            this.Preco.Width = 60;
-            // 
-            // Quantidade
-            // 
-            this.Quantidade.HeaderText = "Quantidade";
-            this.Quantidade.Name = "Quantidade";
-            this.Quantidade.ReadOnly = true;
-            this.Quantidade.Width = 74;
-            // 
-            // Lucro
-            // 
-            this.Lucro.HeaderText = "Lucro(R$)";
-            this.Lucro.Name = "Lucro";
-            this.Lucro.ReadOnly = true;
-            this.Lucro.Width = 53;
-            // 
-            // LucroPercent
-            // 
-            this.LucroPercent.HeaderText = "Lucro(%)";
-            this.LucroPercent.Name = "LucroPercent";
-            this.LucroPercent.ReadOnly = true;
-            this.LucroPercent.Width = 53;
             // 
             // lblResultPercent
             // 
@@ -335,6 +286,62 @@ namespace Vendas
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Codigo.Width = 50;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Nome.Width = 197;
+            // 
+            // Custo
+            // 
+            this.Custo.HeaderText = "Custo";
+            this.Custo.Name = "Custo";
+            this.Custo.ReadOnly = true;
+            this.Custo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Custo.Width = 60;
+            // 
+            // Preco
+            // 
+            this.Preco.HeaderText = "Preço";
+            this.Preco.Name = "Preco";
+            this.Preco.ReadOnly = true;
+            this.Preco.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Preco.Width = 60;
+            // 
+            // Quantidade
+            // 
+            this.Quantidade.HeaderText = "Quantidade";
+            this.Quantidade.Name = "Quantidade";
+            this.Quantidade.ReadOnly = true;
+            this.Quantidade.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Quantidade.Width = 74;
+            // 
+            // Lucro
+            // 
+            this.Lucro.HeaderText = "Lucro(R$)";
+            this.Lucro.Name = "Lucro";
+            this.Lucro.ReadOnly = true;
+            this.Lucro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Lucro.Width = 53;
+            // 
+            // LucroPercent
+            // 
+            this.LucroPercent.HeaderText = "Lucro(%)";
+            this.LucroPercent.Name = "LucroPercent";
+            this.LucroPercent.ReadOnly = true;
+            this.LucroPercent.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LucroPercent.Width = 53;
             // 
             // frmProduto
             // 

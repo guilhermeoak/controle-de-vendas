@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="sistema_de_estoqueModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Produto">
           <Key>
             <PropertyRef Name="Codprod" />
           </Key>
-          <Property Name="Codprod" Type="int" Nullable="false" />
+          <Property Name="Codprod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Prodnome" Type="varchar" MaxLength="255" />
           <Property Name="Custo" Type="float" />
           <Property Name="Preco_final" Type="float" />
@@ -17,19 +17,19 @@
           <Property Name="Lucro" Type="float" />
           <Property Name="Lucro_percentual" Type="float" />
         </EntityType>
-        <EntityContainer Name="sistema_de_estoqueModelStoreContainer">
+        <EntityContainer Name="ModelsStoreContainer">
           <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="sistema_de_estoqueModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Produto">
           <Key>
             <PropertyRef Name="Codprod" />
           </Key>
-          <Property Name="Codprod" Type="Int32" Nullable="false" />
+          <Property Name="Codprod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Prodnome" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Custo" Type="Double" />
           <Property Name="Preco_final" Type="Double" />
@@ -37,7 +37,7 @@
           <Property Name="Lucro" Type="Double" />
           <Property Name="Lucro_percentual" Type="Double" />
         </EntityType>
-        <EntityContainer Name="sistema_de_estoqueEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="sistema_de_estoqueProduto" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Produto" EntityType="Self.Produto" />
         </EntityContainer>
       </Schema>
@@ -45,9 +45,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="sistema_de_estoqueModelStoreContainer" CdmEntityContainer="sistema_de_estoqueEntities">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="sistema_de_estoqueProduto">
           <EntitySetMapping Name="Produto">
-            <EntityTypeMapping TypeName="sistema_de_estoqueModel.Produto">
+            <EntityTypeMapping TypeName="Models.Produto">
               <MappingFragment StoreEntitySet="Produto">
                 <ScalarProperty Name="Codprod" ColumnName="Codprod" />
                 <ScalarProperty Name="Prodnome" ColumnName="Prodnome" />

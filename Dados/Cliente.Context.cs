@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vendas
+namespace Vendas.Dados
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class sistema_de_estoqueEntities : DbContext
+    public partial class sistema_de_estoqueCliente : DbContext
     {
-        public sistema_de_estoqueEntities()
-            : base("name=sistema_de_estoqueEntities")
+        public sistema_de_estoqueCliente()
+            : base("name=sistema_de_estoqueCliente")
         {
         }
     
@@ -25,6 +25,6 @@ namespace Vendas
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Produto> Produto { get; set; }
+        public virtual DbSet<Cliente> Cliente { get; set; }
     }
 }

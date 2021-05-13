@@ -104,6 +104,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dados\Cliente.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cliente.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\Cliente.cs">
+      <DependentUpon>Cliente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\Cliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cliente.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\Cliente1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cliente.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\Produto.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Produto.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\Produto.cs">
+      <DependentUpon>Produto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\Produto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Produto.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\Produto1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Produto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Form_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,23 +152,11 @@
     <Compile Include="Form_Produto.Designer.cs">
       <DependentUpon>Form_Produto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Produto.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Produto.Context.tt</DependentUpon>
+    <Compile Include="Form_Tela_Inicial.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Produto.cs">
-      <DependentUpon>Produto.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Produto.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Produto.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Produto1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Produto.tt</DependentUpon>
+    <Compile Include="Form_Tela_Inicial.Designer.cs">
+      <DependentUpon>Form_Tela_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Produto.resx">
       <DependentUpon>Form_Produto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Tela_Inicial.resx">
+      <DependentUpon>Form_Tela_Inicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,14 +178,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
-    <EntityDeploy Include="Produto.edmx">
+    <EntityDeploy Include="Dados\Cliente.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Cliente.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Dados\Cliente.edmx.diagram">
+      <DependentUpon>Cliente.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Dados\Produto.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Produto.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Produto.edmx.diagram">
+    <None Include="Dados\Produto.edmx.diagram">
       <DependentUpon>Produto.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -173,12 +207,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Produto.Context.tt">
+    <Content Include="Dados\Cliente.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Produto.Context.cs</LastGenOutput>
-      <DependentUpon>Produto.edmx</DependentUpon>
+      <DependentUpon>Cliente.edmx</DependentUpon>
+      <LastGenOutput>Cliente.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Produto.tt">
+    <Content Include="Dados\Cliente.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Cliente.edmx</DependentUpon>
+      <LastGenOutput>Cliente1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Dados\Produto.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Produto.edmx</DependentUpon>
+      <LastGenOutput>Produto.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Dados\Produto.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Produto.edmx</DependentUpon>
       <LastGenOutput>Produto1.cs</LastGenOutput>
