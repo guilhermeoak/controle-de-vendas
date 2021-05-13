@@ -47,7 +47,7 @@ namespace Vendas
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(524, 276);
+            this.btnSair.Location = new System.Drawing.Point(611, 696);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(97, 53);
             this.btnSair.TabIndex = 1;
@@ -79,16 +79,16 @@ namespace Vendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 341);
+            this.ClientSize = new System.Drawing.Size(720, 761);
             this.Controls.Add(this.btnServicoVenda);
             this.Controls.Add(this.btnCadastrodeCliente);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnCadastroProduto);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form_Tela_Inicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_Tela_Inicial";
+            this.Text = "Sistema de Estoque e Gerenciamento de Vendas e Serviços";
             this.ResumeLayout(false);
 
         }
