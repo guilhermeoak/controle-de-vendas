@@ -7,13 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vendas.Telas.Complementares;
+using Vendas.Dados;
 
 namespace Vendas
 {
     public partial class Form_Tela_Inicial : Form
     {
+        frmLogin tela_login;
+        public Cliente usuario;
+
         public Form_Tela_Inicial()
         {
+            InitializeComponent();
+        }
+
+        public Form_Tela_Inicial(frmLogin login)
+        {
+            tela_login   = login;
+            usuario = tela_login.usuario;
             InitializeComponent();
         }
 
@@ -32,6 +44,12 @@ namespace Vendas
         {            
             Form tela_cliente = new frmCliente();
             tela_cliente.Show();
+        }
+
+        private void btnServicoVenda_Click(object sender, EventArgs e)
+        {
+            Form tela_vendas = new frmVendasServicos(this);
+            tela_vendas.Show();
         }
     }
 }
