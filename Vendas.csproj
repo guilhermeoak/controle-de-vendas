@@ -36,7 +36,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Sistema de Controle de Estoque e Vendas\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -140,34 +140,94 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Produto.tt</DependentUpon>
     </Compile>
-    <Compile Include="Form_Cliente.cs">
+    <Compile Include="Dados\VendasServicos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VendasServicos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\VendasServicos.cs">
+      <DependentUpon>VendasServicos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\VendasServicos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VendasServicos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Dados\VendasServicos1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VendasServicos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Complementares\Form_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Cliente.Designer.cs">
+    <Compile Include="Telas\Complementares\Form_Login.Designer.cs">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\TelasDePesquisa\Form_Pesquisa_Produto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelasDePesquisa\Form_Pesquisa_Produto.Designer.cs">
+      <DependentUpon>Form_Pesquisa_Produto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Complementares\CriacaoDeSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Complementares\CriacaoDeSenha.Designer.cs">
+      <DependentUpon>CriacaoDeSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Form_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Form_Cliente.Designer.cs">
       <DependentUpon>Form_Cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Produto.cs">
+    <Compile Include="Telas\Form_Produto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Produto.Designer.cs">
+    <Compile Include="Telas\Form_Produto.Designer.cs">
       <DependentUpon>Form_Produto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Tela_Inicial.cs">
+    <Compile Include="Telas\Form_Tela_Inicial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Tela_Inicial.Designer.cs">
+    <Compile Include="Telas\Form_Tela_Inicial.Designer.cs">
       <DependentUpon>Form_Tela_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Form_VendasServicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Form_VendasServicos.Designer.cs">
+      <DependentUpon>Form_VendasServicos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form_Cliente.resx">
+    <Compile Include="Telas\TelasDePesquisa\Form_Pesquisa_Cliente_Tecnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelasDePesquisa\Form_Pesquisa_Cliente_Tecnico.Designer.cs">
+      <DependentUpon>Form_Pesquisa_Cliente_Tecnico.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Telas\Complementares\Form_Login.resx">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\TelasDePesquisa\Form_Pesquisa_Produto.resx">
+      <DependentUpon>Form_Pesquisa_Produto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Complementares\CriacaoDeSenha.resx">
+      <DependentUpon>CriacaoDeSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Form_Cliente.resx">
       <DependentUpon>Form_Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Produto.resx">
+    <EmbeddedResource Include="Telas\Form_Produto.resx">
       <DependentUpon>Form_Produto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Tela_Inicial.resx">
+    <EmbeddedResource Include="Telas\Form_Tela_Inicial.resx">
       <DependentUpon>Form_Tela_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Form_VendasServicos.resx">
+      <DependentUpon>Form_VendasServicos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -177,7 +237,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Telas\TelasDePesquisa\Form_Pesquisa_Cliente_Tecnico.resx">
+      <DependentUpon>Form_Pesquisa_Cliente_Tecnico.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Dados\Cliente.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Cliente.Designer.cs</LastGenOutput>
@@ -191,6 +255,13 @@
     </EntityDeploy>
     <None Include="Dados\Produto.edmx.diagram">
       <DependentUpon>Produto.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Dados\VendasServicos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VendasServicos.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Dados\VendasServicos.edmx.diagram">
+      <DependentUpon>VendasServicos.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -207,6 +278,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Lupa.png" />
+    <None Include="Assets\Lupa24.png" />
     <Content Include="Dados\Cliente.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Cliente.edmx</DependentUpon>
@@ -226,6 +299,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Produto.edmx</DependentUpon>
       <LastGenOutput>Produto1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Dados\VendasServicos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VendasServicos.edmx</DependentUpon>
+      <LastGenOutput>VendasServicos.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Dados\VendasServicos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VendasServicos.edmx</DependentUpon>
+      <LastGenOutput>VendasServicos1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

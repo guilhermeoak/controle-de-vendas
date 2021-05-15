@@ -47,7 +47,7 @@ namespace Vendas
             // 
             // btnSair
             // 
-            this.btnSair.Location = new System.Drawing.Point(611, 696);
+            this.btnSair.Location = new System.Drawing.Point(611, 701);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(97, 53);
             this.btnSair.TabIndex = 1;
@@ -74,12 +74,13 @@ namespace Vendas
             this.btnServicoVenda.TabIndex = 3;
             this.btnServicoVenda.Text = "Serviço / Venda";
             this.btnServicoVenda.UseVisualStyleBackColor = true;
+            this.btnServicoVenda.Click += new System.EventHandler(this.btnServicoVenda_Click);
             // 
             // Form_Tela_Inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 761);
+            this.ClientSize = new System.Drawing.Size(720, 766);
             this.Controls.Add(this.btnServicoVenda);
             this.Controls.Add(this.btnCadastrodeCliente);
             this.Controls.Add(this.btnSair);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vendas.Telas.Complementares;
 
 namespace Vendas
 {
@@ -16,8 +17,11 @@ namespace Vendas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form tela_inicial = new Form_Tela_Inicial();
-            Application.Run(tela_inicial);            
+            //Form tela_inicial = new Form_Tela_Inicial();
+            //Application.Run(tela_inicial);            
+
+            Form tela_inicial = new frmLogin();
+            Application.Run(tela_inicial);
         }
     }
 }

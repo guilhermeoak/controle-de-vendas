@@ -12,16 +12,16 @@ namespace Vendas.Dados
     using System;
     using System.Collections.Generic;
     
-    public partial class Cliente
+    public partial class VendasServicos
     {
         public int Codigo { get; set; }
-        public string Nome { get; set; }
-        public string CPF { get; set; }
-        public string RG { get; set; }
-        public Nullable<System.DateTime> DtNascimento { get; set; }
-        public Nullable<System.DateTime> DtCadastro { get; set; }
+        public string Descricao { get; set; }
+        public Nullable<int> CodProdServ { get; set; }
+        public Nullable<System.DateTime> DataTransacao { get; set; }
         public string Tipo { get; set; }
-        public string senha { get; set; }
-        public string usuario { get; set; }
+        public Nullable<double> Quantidade { get; set; }
+        public Nullable<double> ValorTotal { get; set; }
+        public Nullable<int> CodCli { get; set; }
+        public Nullable<int> CodOp { get; set; }
     }
 }
