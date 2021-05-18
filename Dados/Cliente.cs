@@ -23,5 +23,6 @@ namespace Vendas.Dados
         public string Tipo { get; set; }
         public string senha { get; set; }
         public string usuario { get; set; }
+        public string celular { get; set; }
     }
 }

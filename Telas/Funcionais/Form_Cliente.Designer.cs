@@ -33,18 +33,11 @@ namespace Vendas
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.grdDados = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.cbTipo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.edtDtCadastro = new System.Windows.Forms.MaskedTextBox();
+            this.lblCelular = new System.Windows.Forms.Label();
+            this.edtCelular = new System.Windows.Forms.MaskedTextBox();
             this.edtNasc = new System.Windows.Forms.MaskedTextBox();
             this.edtRG = new System.Windows.Forms.MaskedTextBox();
             this.edtCPF = new System.Windows.Forms.MaskedTextBox();
@@ -58,6 +51,14 @@ namespace Vendas
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCodCliente = new System.Windows.Forms.Label();
             this.edtCodCliente = new System.Windows.Forms.TextBox();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nasc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -109,7 +110,8 @@ namespace Vendas
             this.RG,
             this.Nasc,
             this.Cadastro,
-            this.Tipo});
+            this.Tipo,
+            this.Celular});
             this.grdDados.Location = new System.Drawing.Point(14, 73);
             this.grdDados.Name = "grdDados";
             this.grdDados.ReadOnly = true;
@@ -117,67 +119,12 @@ namespace Vendas
             this.grdDados.TabIndex = 8;
             this.grdDados.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdDados_CellMouseDoubleClick);
             // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Codigo.Width = 50;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Nome.Width = 205;
-            // 
-            // CPF
-            // 
-            this.CPF.HeaderText = "CPF";
-            this.CPF.Name = "CPF";
-            this.CPF.ReadOnly = true;
-            this.CPF.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CPF.Width = 85;
-            // 
-            // RG
-            // 
-            this.RG.HeaderText = "RG";
-            this.RG.Name = "RG";
-            this.RG.ReadOnly = true;
-            this.RG.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.RG.Width = 55;
-            // 
-            // Nasc
-            // 
-            this.Nasc.HeaderText = "Nasc";
-            this.Nasc.Name = "Nasc";
-            this.Nasc.ReadOnly = true;
-            this.Nasc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Nasc.Width = 82;
-            // 
-            // Cadastro
-            // 
-            this.Cadastro.HeaderText = "Cadastro";
-            this.Cadastro.Name = "Cadastro";
-            this.Cadastro.ReadOnly = true;
-            this.Cadastro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Cadastro.Width = 82;
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            this.Tipo.Width = 70;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblTipo);
             this.groupBox1.Controls.Add(this.cbTipo);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.edtDtCadastro);
+            this.groupBox1.Controls.Add(this.lblCelular);
+            this.groupBox1.Controls.Add(this.edtCelular);
             this.groupBox1.Controls.Add(this.edtNasc);
             this.groupBox1.Controls.Add(this.edtRG);
             this.groupBox1.Controls.Add(this.edtCPF);
@@ -204,7 +151,7 @@ namespace Vendas
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(498, 49);
+            this.lblTipo.Location = new System.Drawing.Point(504, 49);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(31, 13);
             this.lblTipo.TabIndex = 35;
@@ -217,28 +164,28 @@ namespace Vendas
             this.cbTipo.Items.AddRange(new object[] {
             "CLIENTE",
             "OPERADOR"});
-            this.cbTipo.Location = new System.Drawing.Point(530, 45);
+            this.cbTipo.Location = new System.Drawing.Point(535, 45);
             this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(89, 21);
+            this.cbTipo.Size = new System.Drawing.Size(84, 21);
             this.cbTipo.TabIndex = 7;
             // 
-            // label1
+            // lblCelular
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(374, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Cadastro:";
+            this.lblCelular.AutoSize = true;
+            this.lblCelular.Location = new System.Drawing.Point(374, 49);
+            this.lblCelular.Name = "lblCelular";
+            this.lblCelular.Size = new System.Drawing.Size(42, 13);
+            this.lblCelular.TabIndex = 33;
+            this.lblCelular.Text = "Celular:";
             // 
-            // edtDtCadastro
+            // edtCelular
             // 
-            this.edtDtCadastro.Location = new System.Drawing.Point(427, 45);
-            this.edtDtCadastro.Mask = "##/##/####";
-            this.edtDtCadastro.Name = "edtDtCadastro";
-            this.edtDtCadastro.Size = new System.Drawing.Size(66, 20);
-            this.edtDtCadastro.TabIndex = 6;
-            this.edtDtCadastro.Click += new System.EventHandler(this.edtDtCadastro_Click);
+            this.edtCelular.Location = new System.Drawing.Point(420, 45);
+            this.edtCelular.Mask = "(##)#####-####";
+            this.edtCelular.Name = "edtCelular";
+            this.edtCelular.Size = new System.Drawing.Size(81, 20);
+            this.edtCelular.TabIndex = 6;
+            this.edtCelular.Click += new System.EventHandler(this.edtCelular_Click);
             // 
             // edtNasc
             // 
@@ -361,6 +308,68 @@ namespace Vendas
             this.edtCodCliente.TabIndex = 1;
             this.edtCodCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edtCodCliente_KeyPress);
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Codigo.Width = 50;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Nome.Width = 205;
+            // 
+            // CPF
+            // 
+            this.CPF.HeaderText = "CPF";
+            this.CPF.Name = "CPF";
+            this.CPF.ReadOnly = true;
+            this.CPF.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CPF.Width = 85;
+            // 
+            // RG
+            // 
+            this.RG.HeaderText = "RG";
+            this.RG.Name = "RG";
+            this.RG.ReadOnly = true;
+            this.RG.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.RG.Width = 55;
+            // 
+            // Nasc
+            // 
+            this.Nasc.HeaderText = "Nasc";
+            this.Nasc.Name = "Nasc";
+            this.Nasc.ReadOnly = true;
+            this.Nasc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Nasc.Width = 82;
+            // 
+            // Cadastro
+            // 
+            this.Cadastro.HeaderText = "Cadastro";
+            this.Cadastro.Name = "Cadastro";
+            this.Cadastro.ReadOnly = true;
+            this.Cadastro.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Cadastro.Width = 82;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Width = 70;
+            // 
+            // Celular
+            // 
+            this.Celular.HeaderText = "Celular";
+            this.Celular.Name = "Celular";
+            this.Celular.ReadOnly = true;
+            this.Celular.Width = 85;
+            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,8 +409,8 @@ namespace Vendas
         private System.Windows.Forms.MaskedTextBox edtRG;
         private System.Windows.Forms.MaskedTextBox edtCPF;
         private System.Windows.Forms.MaskedTextBox edtNasc;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox edtDtCadastro;
+        private System.Windows.Forms.Label lblCelular;
+        private System.Windows.Forms.MaskedTextBox edtCelular;
         public System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
@@ -411,5 +420,6 @@ namespace Vendas
         private System.Windows.Forms.DataGridViewTextBoxColumn Nasc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cadastro;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Celular;
     }
 }

@@ -164,10 +164,10 @@
     <Compile Include="Telas\Complementares\Form_Login.Designer.cs">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Telas\TelasDePesquisa\Form_Pesquisa_Produto.cs">
+    <Compile Include="Telas\Pesquisa\Form_Pesquisa_Produto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Telas\TelasDePesquisa\Form_Pesquisa_Produto.Designer.cs">
+    <Compile Include="Telas\Pesquisa\Form_Pesquisa_Produto.Designer.cs">
       <DependentUpon>Form_Pesquisa_Produto.cs</DependentUpon>
     </Compile>
     <Compile Include="Telas\Complementares\CriacaoDeSenha.cs">
@@ -176,16 +176,16 @@
     <Compile Include="Telas\Complementares\CriacaoDeSenha.Designer.cs">
       <DependentUpon>CriacaoDeSenha.cs</DependentUpon>
     </Compile>
-    <Compile Include="Telas\Form_Cliente.cs">
+    <Compile Include="Telas\Funcionais\Form_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Telas\Form_Cliente.Designer.cs">
+    <Compile Include="Telas\Funcionais\Form_Cliente.Designer.cs">
       <DependentUpon>Form_Cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Telas\Form_Produto.cs">
+    <Compile Include="Telas\Funcionais\Form_Produto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Telas\Form_Produto.Designer.cs">
+    <Compile Include="Telas\Funcionais\Form_Produto.Designer.cs">
       <DependentUpon>Form_Produto.cs</DependentUpon>
     </Compile>
     <Compile Include="Telas\Form_Tela_Inicial.cs">
@@ -194,39 +194,39 @@
     <Compile Include="Telas\Form_Tela_Inicial.Designer.cs">
       <DependentUpon>Form_Tela_Inicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Telas\Form_VendasServicos.cs">
+    <Compile Include="Telas\Funcionais\Form_VendasServicos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Telas\Form_VendasServicos.Designer.cs">
+    <Compile Include="Telas\Funcionais\Form_VendasServicos.Designer.cs">
       <DependentUpon>Form_VendasServicos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Telas\TelasDePesquisa\Form_Pesquisa_Cliente_Tecnico.cs">
+    <Compile Include="Telas\Pesquisa\Form_Pesquisa_Cliente_Tecnico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Telas\TelasDePesquisa\Form_Pesquisa_Cliente_Tecnico.Designer.cs">
+    <Compile Include="Telas\Pesquisa\Form_Pesquisa_Cliente_Tecnico.Designer.cs">
       <DependentUpon>Form_Pesquisa_Cliente_Tecnico.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Telas\Complementares\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Telas\TelasDePesquisa\Form_Pesquisa_Produto.resx">
+    <EmbeddedResource Include="Telas\Pesquisa\Form_Pesquisa_Produto.resx">
       <DependentUpon>Form_Pesquisa_Produto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\Complementares\CriacaoDeSenha.resx">
       <DependentUpon>CriacaoDeSenha.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Telas\Form_Cliente.resx">
+    <EmbeddedResource Include="Telas\Funcionais\Form_Cliente.resx">
       <DependentUpon>Form_Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Telas\Form_Produto.resx">
+    <EmbeddedResource Include="Telas\Funcionais\Form_Produto.resx">
       <DependentUpon>Form_Produto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\Form_Tela_Inicial.resx">
       <DependentUpon>Form_Tela_Inicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Telas\Form_VendasServicos.resx">
+    <EmbeddedResource Include="Telas\Funcionais\Form_VendasServicos.resx">
       <DependentUpon>Form_VendasServicos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -239,7 +239,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Telas\TelasDePesquisa\Form_Pesquisa_Cliente_Tecnico.resx">
+    <EmbeddedResource Include="Telas\Pesquisa\Form_Pesquisa_Cliente_Tecnico.resx">
       <DependentUpon>Form_Pesquisa_Cliente_Tecnico.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Dados\Cliente.edmx">
