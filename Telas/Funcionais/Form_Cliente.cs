@@ -198,11 +198,11 @@ namespace Vendas
             /// O modo 3 é usado na hora de cadastrar/editar um cliente.
             /// </sumary>
 
-            //edtCelular.Enabled = false;
+            edtCelular.Enabled    = false;
             edtNasc.Enabled       = false;
             edtCPF.Enabled        = false;
             edtRG.Enabled         = false;
-            cbTipo.SelectedIndex  = 0;
+            //cbTipo.SelectedIndex  = 0;
              
 
             btnLimpar.Enabled = true;
@@ -213,7 +213,8 @@ namespace Vendas
                 edtNasc.Enabled       = false;
                 edtCPF.Enabled        = false;
                 edtRG.Enabled         = false;
-                cbTipo.SelectedItem   = 0;                              
+                edtCelular.Enabled    = false;
+                //cbTipo.SelectedItem   = 0;                              
                 btnGravar.Enabled     = false;
                 btnDeletar.Enabled    = false;
                 btnBuscar.Enabled     = true;
@@ -228,6 +229,7 @@ namespace Vendas
                 edtNasc.Enabled       = true;
                 edtCPF.Enabled        = true;
                 edtRG.Enabled         = true;
+                edtCelular.Enabled    = true;
                 cbTipo.SelectedIndex  = 0;
                 btnBuscar.Enabled     = false;
                 return;
@@ -237,6 +239,7 @@ namespace Vendas
             edtCPF.Text           = "";
             edtRG.Text            = "";
             edtNasc.Text          = "";
+            edtCelular.Text       = "";
             cbTipo.SelectedIndex  = 0;
             edtCodCliente.Enabled = true;
             edtCodCliente.Text    = "";
@@ -293,11 +296,16 @@ namespace Vendas
                     }
                     if (Clientes.Count == 0)
                     {
-                        MessageBox.Show("Não há clientes cadastrados.");
+                        var mensagem_tecnico = "técnicos";
+                        if(cbTipo.SelectedIndex == 0)
+                            MessageBox.Show("Não há clientes cadastrados.");
+                        else
+                            MessageBox.Show($"Não há {mensagem_tecnico} cadastrados.");
+
                         RedefineCampos(2);
+                        //btnBuscar.Enabled = true;
                         return;
                     }
-                    btnBuscar.Enabled = true;
                 }
                 else if ((edtNome.TextLength > 0) || (codcliente > 0))
                 {
@@ -319,7 +327,12 @@ namespace Vendas
                     }
                     else
                     {
-                        MessageBox.Show("Cliente não encontrado.");
+                        var mensagem_tecnico = "Técnico";
+                        if (cbTipo.SelectedIndex == 0)
+                            MessageBox.Show("Cliente não cadastrado.");
+                        else
+                            MessageBox.Show($"{mensagem_tecnico} não cadastrado.");
+
                         RedefineCampos();
                     }
                 }

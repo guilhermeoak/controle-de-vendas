@@ -33,15 +33,6 @@ namespace Vendas
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.grdDados = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodTecnico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TecnicoNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClienteNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdutoNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnPesquisarProduto = new System.Windows.Forms.Button();
             this.btnPesquisarCliente = new System.Windows.Forms.Button();
@@ -68,6 +59,16 @@ namespace Vendas
             this.edtNomeOperador = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.edtCodigo = new System.Windows.Forms.TextBox();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodTecnico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TecnicoNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClienteNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Produto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdutoNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Notas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -120,82 +121,13 @@ namespace Vendas
             this.Cliente,
             this.ClienteNome,
             this.Produto,
-            this.ProdutoNome});
+            this.ProdutoNome,
+            this.Notas});
             this.grdDados.Location = new System.Drawing.Point(59, 135);
             this.grdDados.Name = "grdDados";
             this.grdDados.ReadOnly = true;
             this.grdDados.Size = new System.Drawing.Size(615, 279);
             this.grdDados.TabIndex = 25;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Codigo.Width = 50;
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            this.Tipo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Tipo.Width = 60;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total(R$)";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Total.Width = 60;
-            // 
-            // CodTecnico
-            // 
-            this.CodTecnico.HeaderText = "Técnico";
-            this.CodTecnico.Name = "CodTecnico";
-            this.CodTecnico.ReadOnly = true;
-            this.CodTecnico.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.CodTecnico.Width = 50;
-            // 
-            // TecnicoNome
-            // 
-            this.TecnicoNome.HeaderText = "Técnico(nome)";
-            this.TecnicoNome.Name = "TecnicoNome";
-            this.TecnicoNome.ReadOnly = true;
-            this.TecnicoNome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TecnicoNome.Width = 200;
-            // 
-            // Cliente
-            // 
-            this.Cliente.HeaderText = "Cliente";
-            this.Cliente.Name = "Cliente";
-            this.Cliente.ReadOnly = true;
-            this.Cliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Cliente.Width = 50;
-            // 
-            // ClienteNome
-            // 
-            this.ClienteNome.HeaderText = "Cliente(nome)";
-            this.ClienteNome.Name = "ClienteNome";
-            this.ClienteNome.ReadOnly = true;
-            this.ClienteNome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ClienteNome.Width = 200;
-            // 
-            // Produto
-            // 
-            this.Produto.HeaderText = "Produto";
-            this.Produto.Name = "Produto";
-            this.Produto.ReadOnly = true;
-            this.Produto.Width = 50;
-            // 
-            // ProdutoNome
-            // 
-            this.ProdutoNome.HeaderText = "Produto(nome)";
-            this.ProdutoNome.Name = "ProdutoNome";
-            this.ProdutoNome.ReadOnly = true;
-            this.ProdutoNome.Width = 200;
             // 
             // groupBox1
             // 
@@ -461,6 +393,83 @@ namespace Vendas
             this.edtCodigo.TabIndex = 1;
             this.edtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.edtCodigo_KeyPress);
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Codigo.Width = 50;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Tipo.Width = 60;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total(R$)";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Total.Width = 60;
+            // 
+            // CodTecnico
+            // 
+            this.CodTecnico.HeaderText = "Técnico";
+            this.CodTecnico.Name = "CodTecnico";
+            this.CodTecnico.ReadOnly = true;
+            this.CodTecnico.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.CodTecnico.Width = 50;
+            // 
+            // TecnicoNome
+            // 
+            this.TecnicoNome.HeaderText = "Técnico(nome)";
+            this.TecnicoNome.Name = "TecnicoNome";
+            this.TecnicoNome.ReadOnly = true;
+            this.TecnicoNome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TecnicoNome.Width = 200;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            this.Cliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Cliente.Width = 50;
+            // 
+            // ClienteNome
+            // 
+            this.ClienteNome.HeaderText = "Cliente(nome)";
+            this.ClienteNome.Name = "ClienteNome";
+            this.ClienteNome.ReadOnly = true;
+            this.ClienteNome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ClienteNome.Width = 200;
+            // 
+            // Produto
+            // 
+            this.Produto.HeaderText = "Produto";
+            this.Produto.Name = "Produto";
+            this.Produto.ReadOnly = true;
+            this.Produto.Width = 50;
+            // 
+            // ProdutoNome
+            // 
+            this.ProdutoNome.HeaderText = "Produto(nome)";
+            this.ProdutoNome.Name = "ProdutoNome";
+            this.ProdutoNome.ReadOnly = true;
+            this.ProdutoNome.Width = 200;
+            // 
+            // Notas
+            // 
+            this.Notas.HeaderText = "notas";
+            this.Notas.Name = "Notas";
+            this.Notas.ReadOnly = true;
+            this.Notas.Width = 250;
+            // 
             // frmVendasServicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,6 +480,7 @@ namespace Vendas
             this.Name = "frmVendasServicos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Estoque - Vendas e Serviços";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmVendasServicos_FormClosing);
             this.Shown += new System.EventHandler(this.frmVendasServicos_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -520,5 +530,6 @@ namespace Vendas
         private System.Windows.Forms.DataGridViewTextBoxColumn ClienteNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdutoNome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Notas;
     }
 }
