@@ -127,6 +127,7 @@ namespace Vendas.TelasDePesquisa
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPesquisaProduto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Estoque - Pesquisa de Produtos";
             ((System.ComponentModel.ISupportInitialize)(this.grdDados)).EndInit();
             this.ResumeLayout(false);

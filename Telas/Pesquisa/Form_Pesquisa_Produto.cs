@@ -55,6 +55,7 @@ namespace Vendas.TelasDePesquisa
 
         private void grdDados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            form_produto.cod_produto         = Convert.ToInt32(grdDados.Rows[e.RowIndex].Cells[0].Value);
             form_produto.edtCodProduto.Text  = grdDados.Rows[e.RowIndex].Cells[0].Value.ToString();
             form_produto.edtNomeProduto.Text = grdDados.Rows[e.RowIndex].Cells[1].Value.ToString();
             form_produto.preco_produto       = Convert.ToDouble(grdDados.Rows[e.RowIndex].Cells[3].Value);

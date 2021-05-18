@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vendas.Dados;
 using Vendas.TelasDePesquisa;
-using Vendas.Telas.Complementares;
 
 namespace Vendas
 {
@@ -19,9 +18,13 @@ namespace Vendas
         public double preco_total;
         public int qtde_produto;
         public int qtde_atualizada;
+        public int cod_produto;
 
-        Form_Tela_Inicial tela_inicial;
-       
+        Form_Tela_Inicial         tela_inicial;
+        frmPesquisaTecnicoCliente pesquisa_tecnico, pesquisa_cliente;
+        frmPesquisaProduto        pesquisa_produto;
+
+
         List<VendasServicos> vendasServicos = new List<VendasServicos>();
 
         public frmVendasServicos()
@@ -37,26 +40,26 @@ namespace Vendas
 
         private void btnPesquisarTecnico_Click(object sender, EventArgs e)
         {
-            frmPesquisaTecnicoCliente pesquisa = new frmPesquisaTecnicoCliente(this);
-            pesquisa.TipoCadastro = "OPERADOR";
-            pesquisa.Show();
-            pesquisa.BuscarCliente();
+            pesquisa_tecnico = new frmPesquisaTecnicoCliente(this);
+            pesquisa_tecnico.TipoCadastro = "OPERADOR";
+            pesquisa_tecnico.Show();
+            pesquisa_tecnico.BuscarCliente();
 
         }
 
         private void btnPesquisarCliente_Click(object sender, EventArgs e)
         {
-            frmPesquisaTecnicoCliente pesquisa = new frmPesquisaTecnicoCliente(this);
-            pesquisa.TipoCadastro = "CLIENTE";
-            pesquisa.Show();
-            pesquisa.BuscarCliente();
+            pesquisa_cliente = new frmPesquisaTecnicoCliente(this);
+            pesquisa_cliente.TipoCadastro = "CLIENTE";
+            pesquisa_cliente.Show();
+            pesquisa_cliente.BuscarCliente();
         }
 
         private void btnPesquisarProduto_Click(object sender, EventArgs e)
         {
-            frmPesquisaProduto pesquisa = new frmPesquisaProduto(this);
-            pesquisa.Show();
-            pesquisa.Buscar_Produtos();
+            pesquisa_produto = new frmPesquisaProduto(this);
+            pesquisa_produto.Show();
+            pesquisa_produto.Buscar_Produtos();
         }
 
         private void frmVendasServicos_Shown(object sender, EventArgs e)
@@ -71,7 +74,30 @@ namespace Vendas
 
         private void btnSair_Click(object sender, EventArgs e)
         {
+            if (pesquisa_tecnico != null)
+                pesquisa_tecnico.Dispose();
+
+            if (pesquisa_produto != null)
+                pesquisa_produto.Dispose();
+
+
+            if (pesquisa_cliente != null)
+                pesquisa_cliente.Dispose();
+
             this.DestroyHandle();
+        }
+
+        private void frmVendasServicos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (pesquisa_tecnico != null)
+                pesquisa_tecnico.Dispose();
+
+            if (pesquisa_produto != null)
+                pesquisa_produto.Dispose();
+
+
+            if (pesquisa_cliente != null)
+                pesquisa_cliente.Dispose();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -96,6 +122,13 @@ namespace Vendas
 
         private bool ValidaCampos()
         {
+            if(qtde_produto < Convert.ToInt32(edtQtde.Text))
+            {
+                MessageBox.Show("Estoque insuficiente. Verifique");
+                edtQtde.Focus();
+                return false;
+            }
+
             return true;
         }
 
@@ -107,31 +140,31 @@ namespace Vendas
             /// O modo 3 é usado na hora de cadastrar/editar.
             /// </sumary>
 
-            edtNomeOperador.Enabled = false;
-            edtNomeCliente.Enabled  = false;
-            edtNomeProduto.Enabled  = false;
-            edtQtde.Enabled         = true;
-            cbTipo.SelectedIndex    = 0;
-
-            btnAdicionar.Text    = "";
-            edtCodOperador.Text  = "";
-            edtCodigo.Text       = "";
-            edtNomeProduto.Text  = "";
-            edtNomeCliente.Text  = "";
-            edtQtde.Text         = "";
-            edtCodProduto.Text   = "";
-            edtNomeOperador.Text = "";
-            edtCodCliente.Text   = "";
-            redtNotas.Text       = ""; 
-            redtPrecoTotal.Text  = "";
-
+            edtCodOperador.Text         = tela_inicial.usuario.Codigo.ToString();
+            edtNomeOperador.Text        = tela_inicial.usuario.Nome;
+            edtCodigo.Text              = "";
+            edtNomeProduto.Text         = "";
+            edtNomeProduto.Text         = "";
+            edtNomeCliente.Text         = "";
+            edtQtde.Text                = "";
+            edtCodProduto.Text          = "";
+            edtCodCliente.Text          = "";
+            redtNotas.Text              = ""; 
+            redtPrecoTotal.Text         = "";
+                                        
+            edtCodOperador.Enabled      = false;
+            edtNomeOperador.Enabled     = false;
+            edtNomeCliente.Enabled      = false;
+            edtNomeProduto.Enabled      = false;
+            edtQtde.Enabled             = true;
+            cbTipo.SelectedIndex        = 0;
 
             btnLimpar.Enabled = true;
             if (modo == 2)
             {
                 grdDados.Rows.Clear();
 
-                edtNomeOperador.Enabled = false;
+                //edtNomeOperador.Enabled = false;
                 edtNomeCliente.Enabled  = false;
                 edtNomeProduto.Enabled  = false;
                 edtQtde.Enabled         = false;
@@ -143,8 +176,8 @@ namespace Vendas
                 vendasServicos.Clear();
             }
 
-            edtCodigo.Enabled = true;
-            edtCodigo.Text    = "";
+            edtCodigo.Enabled           = true;
+            edtCodigo.Text              = "";
             edtCodigo.Focus();
         }
 
@@ -201,6 +234,19 @@ namespace Vendas
 
         private void Gravar()
         {
+            var contextproduto = new sistema_de_estoqueProduto();
+            Produto produto    = contextproduto.Produto.Where(produto_busca => produto_busca.Codprod == cod_produto).FirstOrDefault<Produto>();
+            if(produto != null)
+            {
+                produto.Quantidade = qtde_atualizada;
+                contextproduto.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Produto não econtrado. Verifique!");
+                edtCodProduto.Focus();
+            }
+
             using (var context = new sistema_de_estoqueVendasServicos())
             {
                 foreach (VendasServicos VendasServicos in vendasServicos)
@@ -246,7 +292,6 @@ namespace Vendas
                 // Esse objeto será usado logo abaixo para realizar uma busca por todos os itens no BD.
                 //List<VendasServicos> vendasServicos = new List<VendasServicos>();
 
-                btnBuscar.Enabled = true;
                 // Neste bloco é feita uma busca por todos os produtos no banco e em seguida os dados
                 // são carregados no gridview.
                 if ((edtCodigo.TextLength == 0) && (codprod == 0))
@@ -255,25 +300,25 @@ namespace Vendas
                     //List<VendasServicos> vendasServicos = context.VendasServicos.ToList<VendasServicos>();
                     foreach (VendasServicos pedidos in vendasServicos)
                     {
-                        var cliente              = contextcliente.Cliente.Find(pedidos.CodCli);
-                        var operador             = contextoperador.Cliente.Find(pedidos.CodOp);
-                        var produto              = contextproduto.Produto.Find(pedidos.CodProdServ);
+                        Cliente cliente = contextcliente.Cliente.Where(cliente_busca => cliente_busca.Codigo == pedidos.CodCli && cliente_busca.Tipo == "CLIENTE").FirstOrDefault<Cliente>();
+                        Cliente operador = contextcliente.Cliente.Where(operador_busca => operador_busca.Codigo == pedidos.CodOp && operador_busca.Tipo == "OPERADOR").FirstOrDefault<Cliente>();
+                        Produto produto  = contextproduto.Produto.Where(produto_busca => produto_busca.Codprod == pedidos.CodProdServ).FirstOrDefault<Produto>();
 
                         grdDados.Rows.Add(Convert.ToString(pedidos.Codigo)
                                             ,pedidos.Tipo
                                             ,Convert.ToString(pedidos.ValorTotal)
                                             ,Convert.ToString(pedidos.CodOp)
-                                            ,Convert.ToString(operador.Nome)
+                                            ,(operador.Nome)
                                             ,Convert.ToString(pedidos.CodCli)
-                                            ,Convert.ToString(cliente.Nome)
+                                            ,(cliente.Nome)
                                             ,Convert.ToString(pedidos.CodProdServ)
-                                            ,Convert.ToString(produto.Prodnome));
+                                            ,(produto.Prodnome)
+                                            ,pedidos.Descricao);
                     }
                     if (vendasServicos.Count == 0)
                     {
                         MessageBox.Show("Pedido(s) não encontrados. Verifique.");
                     }
-                    btnBuscar.Enabled = false;
                 }
                 else if ((edtCodCliente.TextLength > 0) || (edtCodOperador.TextLength > 0))
                 { 
@@ -290,7 +335,8 @@ namespace Vendas
                                             ,Convert.ToString(query.CodCli)
                                             ,Convert.ToString("")
                                             ,Convert.ToString(query.CodProdServ)
-                                            ,Convert.ToString(""));
+                                            ,Convert.ToString("")
+                                            ,query.Descricao);
                     }
                     else
                     {
@@ -315,7 +361,7 @@ namespace Vendas
                     MessageBox.Show("Realizando novo pedido");
                     LimparCampos();
                     edtCodigo.Enabled = false;
-                    edtCodOperador.Focus();
+                    edtCodCliente.Focus();
                 }
             }
         }

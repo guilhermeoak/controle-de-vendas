@@ -18,6 +18,7 @@
           <Property Name="Tipo" Type="varchar" MaxLength="255" />
           <Property Name="senha" Type="varchar" MaxLength="255" />
           <Property Name="usuario" Type="varchar" MaxLength="255" />
+          <Property Name="celular" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityContainer Name="Model_ClienteStoreContainer">
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
@@ -39,6 +40,7 @@
           <Property Name="Tipo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="senha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="usuario" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="celular" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="sistema_de_estoqueCliente" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
@@ -52,6 +54,7 @@
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="Model_Cliente.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="celular" ColumnName="celular" />
                 <ScalarProperty Name="usuario" ColumnName="usuario" />
                 <ScalarProperty Name="senha" ColumnName="senha" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />

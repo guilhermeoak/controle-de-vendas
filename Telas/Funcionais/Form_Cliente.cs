@@ -48,7 +48,7 @@ namespace Vendas
         {
             if (e.KeyChar == 13)
             {
-                edtDtCadastro.Focus();
+                edtCelular.Focus();
             }
         }
 
@@ -67,7 +67,7 @@ namespace Vendas
             SendKeys.Send("{HOME}");
         }
 
-        private void edtDtCadastro_Click(object sender, EventArgs e)
+        private void edtCelular_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{HOME}");
         }
@@ -121,25 +121,30 @@ namespace Vendas
                 edtNome.Focus();
                 return false;
             }
-            if (edtCPF.Text.Length  == 0)
+            if (edtCPF.Text.Trim().Length == 9)
             {
                 MessageBox.Show("Favor especificar o CPF.");
                 edtCPF.Focus();
                 return false;
             }
-            if (edtRG.Text.Length   == 0)
+            if (edtRG.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Favor espeficiar o RG.");
                 edtRG.Focus();
                 return false;
             }
-            if (edtNasc.Text.Length == 0)
+            if (edtNasc.Text.Trim().Length == 4)
             {
                 MessageBox.Show("Favor especificar a data de nascimento.");
                 edtNasc.Focus();
                 return false;
             }
-
+            if (edtCelular.Text.Trim().Length == 10)
+            {
+                MessageBox.Show("Favor especificar a número de celular.");
+                edtCelular.Focus();
+                return false;
+            }
             return true;
         }
 
@@ -160,10 +165,11 @@ namespace Vendas
                         ,CPF          = edtCPF.Text
                         ,RG           = edtRG.Text
                         ,DtNascimento = Convert.ToDateTime(edtNasc.Text)
-                        ,DtCadastro   = Convert.ToDateTime(edtDtCadastro.Text)
+                        ,DtCadastro   = DateTime.Now //Convert.ToDateTime(edtCelular.Text)
                         ,Tipo         = cbTipo.Text
                         ,usuario      = usuario
                         ,senha        = senha
+                        ,celular      = edtCelular.Text
                     });
 
                     grdDados.Rows.Add(edtCodCliente.Text
@@ -171,8 +177,9 @@ namespace Vendas
                                      ,edtCPF.Text
                                      ,edtRG.Text
                                      ,edtNasc.Text
-                                     ,edtDtCadastro.Text
-                                     ,cbTipo.Text);
+                                     ,Convert.ToString(DateTime.Now)
+                                     ,cbTipo.Text
+                                     ,edtCelular.Text);
                 }
 
                 RedefineCampos();
@@ -191,12 +198,11 @@ namespace Vendas
             /// O modo 3 é usado na hora de cadastrar/editar um cliente.
             /// </sumary>
 
-            edtDtCadastro.Enabled = false;
-            edtDtCadastro.Text    = DateTime.Now.ToString();
+            edtCelular.Enabled    = false;
             edtNasc.Enabled       = false;
             edtCPF.Enabled        = false;
             edtRG.Enabled         = false;
-            cbTipo.SelectedIndex  = 0;
+            //cbTipo.SelectedIndex  = 0;
              
 
             btnLimpar.Enabled = true;
@@ -207,7 +213,8 @@ namespace Vendas
                 edtNasc.Enabled       = false;
                 edtCPF.Enabled        = false;
                 edtRG.Enabled         = false;
-                cbTipo.SelectedItem   = 0;                              
+                edtCelular.Enabled    = false;
+                //cbTipo.SelectedItem   = 0;                              
                 btnGravar.Enabled     = false;
                 btnDeletar.Enabled    = false;
                 btnBuscar.Enabled     = true;
@@ -222,6 +229,7 @@ namespace Vendas
                 edtNasc.Enabled       = true;
                 edtCPF.Enabled        = true;
                 edtRG.Enabled         = true;
+                edtCelular.Enabled    = true;
                 cbTipo.SelectedIndex  = 0;
                 btnBuscar.Enabled     = false;
                 return;
@@ -231,6 +239,7 @@ namespace Vendas
             edtCPF.Text           = "";
             edtRG.Text            = "";
             edtNasc.Text          = "";
+            edtCelular.Text       = "";
             cbTipo.SelectedIndex  = 0;
             edtCodCliente.Enabled = true;
             edtCodCliente.Text    = "";
@@ -282,15 +291,21 @@ namespace Vendas
                                             ,Cliente.RG
                                             ,Cliente.DtNascimento
                                             ,Cliente.DtCadastro
-                                            ,Cliente.Tipo);
+                                            ,Cliente.Tipo
+                                            ,Cliente.celular);
                     }
                     if (Clientes.Count == 0)
                     {
-                        MessageBox.Show("Não há clientes cadastrados.");
+                        var mensagem_tecnico = "técnicos";
+                        if(cbTipo.SelectedIndex == 0)
+                            MessageBox.Show("Não há clientes cadastrados.");
+                        else
+                            MessageBox.Show($"Não há {mensagem_tecnico} cadastrados.");
+
                         RedefineCampos(2);
+                        //btnBuscar.Enabled = true;
                         return;
                     }
-                    btnBuscar.Enabled = true;
                 }
                 else if ((edtNome.TextLength > 0) || (codcliente > 0))
                 {
@@ -307,11 +322,17 @@ namespace Vendas
                                             ,query.RG
                                             ,query.DtNascimento
                                             ,query.DtCadastro
-                                            ,query.Tipo);
+                                            ,query.Tipo
+                                            ,query.celular);
                     }
                     else
                     {
-                        MessageBox.Show("Cliente não encontrado.");
+                        var mensagem_tecnico = "Técnico";
+                        if (cbTipo.SelectedIndex == 0)
+                            MessageBox.Show("Cliente não cadastrado.");
+                        else
+                            MessageBox.Show($"{mensagem_tecnico} não cadastrado.");
+
                         RedefineCampos();
                     }
                 }
@@ -360,8 +381,9 @@ namespace Vendas
                 edtCPF.Text        = grdDados.Rows[e.RowIndex].Cells[2].Value.ToString();
                 edtRG.Text         = grdDados.Rows[e.RowIndex].Cells[3].Value.ToString();
                 edtNasc.Text       = grdDados.Rows[e.RowIndex].Cells[4].Value.ToString();
-                edtDtCadastro.Text = grdDados.Rows[e.RowIndex].Cells[5].Value.ToString();
+                //edtCelular.Text = grdDados.Rows[e.RowIndex].Cells[5].Value.ToString();
                 cbTipo.Text        = grdDados.Rows[e.RowIndex].Cells[6].Value.ToString();
+                edtCelular.Text = grdDados.Rows[e.RowIndex].Cells[7].Value.ToString();
 
                 var index_celula = grdDados.Rows[e.RowIndex];
                 grdDados.Rows.Remove(index_celula);
