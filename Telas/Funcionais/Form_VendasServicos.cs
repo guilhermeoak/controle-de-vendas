@@ -24,7 +24,6 @@ namespace Vendas
         frmPesquisaTecnicoCliente pesquisa_tecnico, pesquisa_cliente;
         frmPesquisaProduto        pesquisa_produto;
 
-
         List<VendasServicos> vendasServicos = new List<VendasServicos>();
 
         public frmVendasServicos()
