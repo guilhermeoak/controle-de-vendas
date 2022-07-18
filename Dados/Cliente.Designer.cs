@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Documentos\Desenvolvimento\Vendas\Fontes\controle-de-vendas\Dados\Cliente.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\guilh\Documents\Projetos\controle-de-vendas\Dados\Cliente.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

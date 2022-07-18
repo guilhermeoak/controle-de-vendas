@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Vendas.Dados.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SECVModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="VendasServicos">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -19,14 +19,13 @@
           <Property Name="CodCli" Type="int" />
           <Property Name="CodOp" Type="int" />
         </EntityType>
-        <EntityContainer Name="VendasDadosStoreContainer">
+        <EntityContainer Name="SECVModel1StoreContainer">
           <EntitySet Name="VendasServicos" EntityType="Self.VendasServicos" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Vendas.Dados" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SECVModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="VendasServicos">
           <Key>
             <PropertyRef Name="Codigo" />
@@ -49,9 +48,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VendasDadosStoreContainer" CdmEntityContainer="sistema_de_estoqueVendasServicos">
+        <EntityContainerMapping StorageEntityContainer="SECVModel1StoreContainer" CdmEntityContainer="sistema_de_estoqueVendasServicos">
           <EntitySetMapping Name="VendasServicos">
-            <EntityTypeMapping TypeName="Vendas.Dados.VendasServicos">
+            <EntityTypeMapping TypeName="SECVModel1.VendasServicos">
               <MappingFragment StoreEntitySet="VendasServicos">
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Descricao" ColumnName="Descricao" />
